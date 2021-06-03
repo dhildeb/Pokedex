@@ -28,6 +28,10 @@ class PokeApiMonsServices {
     ProxyState.usersPokemons = [...ProxyState.usersPokemons, new UsersPokemon(ProxyState.activePokemon)]
     console.log(ProxyState.usersPokemons)
   }
+
+  releasePokemon(id) {
+    ProxyState.usersPokemons = ProxyState.usersPokemons.filter(p => p.id != id)
+  }
 }
 
 export const pokeApiMonsServices = new PokeApiMonsServices()

@@ -33,4 +33,8 @@ export class PokeApiMonsController {
   catchPokemon() {
     pokeApiMonsServices.catchPokemon()
   }
+
+  releasePokemon(id) {
+    pokeApiMonsServices.releasePokemon(id)
+  }
 }

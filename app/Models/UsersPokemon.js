@@ -10,7 +10,9 @@ export class UsersPokemon {
   get usersTemplate() {
     return `
     <tr class="row" onclick="app.pokeApiMonsController.selectPokemon('${this.id}')">
-    <th class="w-100">${this.name}</th>
+    <th class="w-100">${this.name}
+    <i onclick="app.pokeApiMonsController.releasePokemon('${this.id}')">X</i>
+    </th>
     </tr>
     `
   }
