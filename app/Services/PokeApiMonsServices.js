@@ -1,6 +1,7 @@
 import { ProxyState } from "../AppState.js"
 import { ActivePokemon } from "../Models/ActivePokemon.js"
 import { PokeApiMon } from "../Models/PokeApiMon.js"
+import { UsersPokemon } from "../Models/UsersPokemon.js"
 
 const url = 'https://pokeapi.co/api/v2/pokemon'
 
@@ -19,9 +20,13 @@ class PokeApiMonsServices {
 
   async selectPokemon(url) {
     let res = await axios.get(url)
-    console.log(res)
     ProxyState.activePokemon = new ActivePokemon(res.data)
+  }
+
+  catchPokemon() {
     console.log(ProxyState.activePokemon)
+    ProxyState.usersPokemons = [...ProxyState.usersPokemons, new UsersPokemon(ProxyState.activePokemon)]
+    console.log(ProxyState.usersPokemons)
   }
 }
 

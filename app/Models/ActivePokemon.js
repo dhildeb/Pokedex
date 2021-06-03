@@ -5,6 +5,7 @@ export class ActivePokemon {
     this.height = data.height
     this.weight = data.weight
     this.types = data.types
+    this.abilities = data.abilities
     this.img = data.sprites.front_default
   }
 
@@ -13,15 +14,15 @@ export class ActivePokemon {
     <div class="card w-auto">
     <img src="${this.img}" class="card-img-top" alt="${this.name}.img">
     <div class="card-body">
-        <h5 class="card-title">${this.name}</h5>
-        <p class="card-text">
-            <span>#${this.id}</span>
-            <span>abilities: ${this.abilities}</span>
-            <span>weight: ${this.weight}</span>
-            <span>height: ${this.height}</span>
-            <span>types: ${this.types}</span>
+        <h2 class="card-title">${this.name.toUpperCase()}</h2>
+        <span>#${this.id}</span>
+        <p class="card-text d-flex flex-column">
+            <span><b>abilities</b>: ${this.abilities[0].ability.name}${this.abilities[1] ? ", " + this.abilities[1]?.ability.name : ""}</span>
+            <span><b>weight</b>: ${this.weight}</span>
+            <span><b>height</b>: ${this.height}</span>
+            <span><b>types</b>: ${this.types[0].type.name}${this.types[1] ? ", " + this.types[1]?.type.name : ""}</span>
         </p>
-        <button class="btn btn-primary">Catch ${this.name}</button>
+        <button class="btn btn-primary" onclick="app.pokeApiMonsController.catchPokemon()">Catch ${this.name}</button>
     </div>
 </div>
     `
