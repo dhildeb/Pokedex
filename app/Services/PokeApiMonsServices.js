@@ -20,7 +20,18 @@ class PokeApiMonsServices {
 
   async selectPokemon(url) {
     let res = await axios.get(url)
-    ProxyState.activePokemon = new ActivePokemon(res.data)
+    let pokemon = {
+      id: res.data.id,
+      name: res.data.name,
+      height: res.data.height,
+      weight: res.data.weight,
+      types: res.data.types,
+      abilities: res.data.abilities,
+      img: res.data.sprites.front_default,
+      url: url
+    }
+    console.log(pokemon)
+    ProxyState.activePokemon = new ActivePokemon(pokemon)
   }
 
   catchPokemon() {

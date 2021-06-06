@@ -6,7 +6,8 @@ export class ActivePokemon {
     this.weight = data.weight
     this.types = data.types
     this.abilities = data.abilities
-    this.img = data.sprites.front_default
+    this.img = data.img
+    this.url = data.url
   }
 
   get template() {
